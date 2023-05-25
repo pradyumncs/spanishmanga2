@@ -20,7 +20,7 @@ export default function Buttons({ route, navigation }) {
   const [bookaimg, setBookimg] = React.useState();
 
   const buttons = Array.from({ length: totalItems }, (_, index) => ({
-    title: `Chapter ${index + 1}`,
+    title: `Capítulo ${index + 1}`,
    // onPress: () => console.log(`Chapter ${index + 1} pressed`),
    onPress: () => navigation.navigate("Pdfs"
    ),
@@ -43,7 +43,7 @@ export default function Buttons({ route, navigation }) {
     let { bookaa } = route.params;
     setBook(bookaa)
     console.log(bookaa.author)
-    settotalItems(bookaa.pageNo)
+    settotalItems(bookaa.episodeNo)
     setBookimg(bookaa.bookCover)
 }, [bookaa])
 
@@ -76,15 +76,15 @@ export default function Buttons({ route, navigation }) {
                 >
                 </View>
        <TouchableOpacity
-                        style={{ marginLeft: SIZES.base }}
+                        style={{bottom: 50, }}
                         onPress={() => navigation.goBack()}
                     >
                         <Image
-                            source={icons.back_arrow_icon}
+                            source={icons.back_arrow_icon2}
                             resizeMode="contain"
                             style={{
-                                width: 35,
-                                height: 35,
+                                width: 85,
+                                height: 85,
                                
                             }}
                         />
@@ -131,13 +131,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    margin: 5,
-    borderRadius: 5,
+    backgroundColor: 'white',
+    padding: 15,
+    margin: 4,
+    borderRadius: 8,
   },
   buttonText: {
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
   },
   pagination: {
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
   },
   pageCount: {
     marginHorizontal: 10,
-    fontSize: 18,
+    fontSize: 22,
+    color: 'white',
   },
 });

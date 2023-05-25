@@ -9,6 +9,7 @@ import {
     Animated
 } from 'react-native';
 import { FONTS, COLORS, SIZES, icons } from "../constants";
+import { AntDesign } from '@expo/vector-icons';
 
 const LineDivider = () => {
     return (
@@ -57,7 +58,7 @@ const BookDetail = ({ route, navigation }) => {
                         right: 0,
                         bottom: 0,
                         left: 0,
-                        backgroundColor: book.backgroundColor
+                        backgroundColor: "rgba(240,240,232,0.9)"
                     }}
                 >
                 </View>
@@ -80,7 +81,7 @@ const BookDetail = ({ route, navigation }) => {
                     </TouchableOpacity>
 
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ ...FONTS.h3, color: book.navTintColor }}>Book Detail</Text>
+                    <Text style={{ ...FONTS.h2, color: book.navTintColor }}>{book.bookName}</Text>
                     </View>
 
                     <TouchableOpacity
@@ -113,12 +114,14 @@ const BookDetail = ({ route, navigation }) => {
                     />
                 </View>
 
-                {/* Book Name and Author */}
-                <View style={{ flex: 1.8, alignItems: 'center', justifyContent: 'center' }}>
+                {/* Book Name and Author
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <Text style={{ ...FONTS.h2, color: book.navTintColor }}>{book.bookName}</Text>
+                    <View></View>
                     <Text style={{ ...FONTS.body3, color: book.navTintColor }}>{book.author}</Text>
                 </View>
-
+ */}
+ 
                 {/* Book Info */}
                 <View
                     style={{
@@ -132,22 +135,23 @@ const BookDetail = ({ route, navigation }) => {
                     {/* Rating */}
                     <View style={{ flex: 1, alignItems: 'center' }}>
                         <Text style={{ ...FONTS.h3, color: COLORS.white }}>{book.rating}</Text>
-                        <Text style={{ ...FONTS.body4, color: COLORS.white }}>Rating</Text>
+                        <AntDesign name="star" size={13} color="red" />
+                        <Text style={{ ...FONTS.body4, color: COLORS.white }}>Calificaciones</Text>
                     </View>
 
                     <LineDivider />
 
                     {/* Pages */}
                     <View style={{ flex: 1, paddingHorizontal: SIZES.radius, alignItems: 'center' }}>
-                        <Text style={{ ...FONTS.h3, color: COLORS.white }}>{book.pageNo}</Text>
-                        <Text style={{ ...FONTS.body4, color: COLORS.white }}>Number of Page</Text>
+                        <Text style={{ ...FONTS.h3, color: COLORS.white }}>{book.episodeNo}</Text>
+                        <Text style={{ ...FONTS.body4, color: COLORS.white }}>Número de episodios</Text>
                     </View>
 
                     <LineDivider />
 
                     {/* Language */}
                     <View style={{ flex: 1, alignItems: 'center' }}>
-                        <Text style={{ ...FONTS.h3, color: COLORS.white }}>{book.language}</Text>
+                        <Text style={{ ...FONTS.h3, color: COLORS.white }}>Español</Text>
                         <Text style={{ ...FONTS.body4, color: COLORS.white }}>Language</Text>
                     </View>
                 </View>
@@ -197,7 +201,7 @@ const BookDetail = ({ route, navigation }) => {
                         { useNativeDriver: false }
                     )}
                 >
-                    <Text style={{ ...FONTS.h2, color: COLORS.white, marginBottom: SIZES.padding }}>Description</Text>
+                    <Text style={{ ...FONTS.h2, color: COLORS.white, marginBottom: SIZES.padding }}>Descripción</Text>
                     <Text style={{ ...FONTS.body2, color: COLORS.lightGray }}>{book.description}</Text>
                 </ScrollView>
             </View>
@@ -226,7 +230,7 @@ const BookDetail = ({ route, navigation }) => {
                     bookaa: book
                 })}
                 >
-                    <Text style={{ ...FONTS.h3, color: COLORS.white }}>Start Reading</Text>
+                    <Text style={{ ...FONTS.h3, color: COLORS.white }}>Leer</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -244,6 +248,7 @@ const BookDetail = ({ route, navigation }) => {
                 <View style={{ flex: 2 }}>
                     {renderBookDescription()}
                 </View>
+                
 
                 {/* Buttons */}
                 <View style={{ height: 70, marginBottom: 30 }}>

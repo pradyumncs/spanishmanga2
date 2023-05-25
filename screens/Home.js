@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { COLORS, FONTS, SIZES, icons, images } from '../constants';
+import { AntDesign } from '@expo/vector-icons';
 
 const LineDivider = () => {
     return (
@@ -28,45 +29,76 @@ const Home = ({ navigation }) => {
 
     const bookOtherWordsForHome = {
         id: 1,
-        bookName: "Other Words For Home",
-        bookCover: images.otherWordsForHome,
-        rating: 4.5,
-        language: "Eng",
-        pageNo: 200,
+        bookName: "One \n Piece",
+        bookCover: images.onepiece,
+        rating: "4.5/5",
+        language: "Español",
+        episodeNo: 100,
         author: "Jasmine Warga",
         genre: [
             "Romance", "Adventure", "Drama"
         ],
         readed: "12k",
-        description: "Jude never thought she’d be leaving her beloved older brother and father behind, all the way across the ocean in Syria. But when things in her hometown start becoming volatile, Jude and her mother are sent to live in Cincinnati with relatives. At first, everything in America seems too fast and too loud. The American movies that Jude has always loved haven’t quite prepared her for starting school in the US—and her new label of 'Middle Eastern,' an identity she’s never known before. But this life also brings unexpected surprises—there are new friends, a whole new family, and a school musical that Jude might just try out for. Maybe America, too, is a place where Jude can be seen as she really is.",
+        description: "One Piece, conocido en español como  es un popular manga y anime creado por Eiichiro Oda. Narra las aventuras de Monkey D. Luffy, un joven pirata con un cuerpo elástico que se embarca en un viaje para encontrar el legendario tesoro conocido como One Piece y convertirse en el Rey de los Piratas.",
         backgroundColor: "rgba(240,240,232,0.9)",
         navTintColor: "#000"
     }
 
     const bookTheMetropolis = {
         id: 2,
-        bookName: "The Metropolis",
+        bookName: "Demon \n Slayer",
         bookCover: images.theMetropolist,
-        rating: 4.1,
-        language: "Eng",
-        pageNo: 272,
+        rating: "4.1/5",
+        language: "Español",
+        episodeNo: 272,
         author: "Seith Fried",
         genre: [
             "Adventure", "Drama"
         ],
         readed: "13k",
-        description: "In Metropolis, the gleaming city of tomorrow, the dream of the great American city has been achieved. But all that is about to change, unless a neurotic, rule-following bureaucrat and an irreverent, freewheeling artificial intelligence can save the city from a mysterious terrorist plot that threatens its very existence. Henry Thompson has dedicated his life to improving America's infrastructure as a proud employee of the United States Municipal Survey. So when the agency comes under attack, he dutifully accepts his unexpected mission to visit Metropolis looking for answers. But his plans to investigate quietly, quickly, and carefully are interrupted by his new partner: a day-drinking know-it-all named OWEN, who also turns out to be the projected embodiment of the agency's supercomputer. Soon, Henry and OWEN are fighting to save not only their own lives and those of the city's millions of inhabitants, but also the soul of Metropolis. The Municipalists is a thrilling, funny, and touching adventure story, a tour-de-force of imagination that trenchantly explores our relationships to the cities around us and the technologies guiding us into the future.",
-        backgroundColor: "rgba(247,239,219,0.9)",
+        description: "Demon Slayer: Kimetsu no Yaiba es una serie de manga japonesa escrita e ilustrada por Koyoharu Gotouge. Fue serializado en la revista de manga shōnen de Shueisha Weekly Shōnen Jump desde febrero de 2016 hasta mayo de 2020, con sus capítulos recopilados en 23 volúmenes de tankōbon.",
         navTintColor: "#000"
     }
 
     const bookTheTinyDragon = {
         id: 3,
-        bookName: "The Tiny Dragon",
+        bookName: "The Tiny \n Dragon",
         bookCover: images.theTinyDragon,
-        rating: 3.5,
-        language: "Eng",
-        pageNo: 110,
+        rating: "3.5/5",
+        language: "Español",
+        episodeNo: 110,
+        author: "Ana C Bouvier",
+        genre: [
+            "Drama", "Adventure", "Romance"
+        ],
+        readed: "13k",
+        description: "This sketchbook for kids is the perfect tool to improve your drawing skills! Designed to encourage kids around the world to express their uniqueness through drawing, sketching or doodling, this sketch book is filled with 110 high quality blank pages for creations. Add some fun markers, crayons, and art supplies and you have the perfect, easy gift for kids!",
+        backgroundColor: "rgba(119,77,143,0.9)",
+        navTintColor: "#FFF"
+    }
+    const bookTheTinyDragona = {
+        id: 4,
+        bookName: "The Tiny \nDragon",
+        bookCover: images.theTinyDragon,
+        rating: "3.5/5",
+        language: "Español",
+        episodeNo: 110,
+        author: "Ana C Bouvier",
+        genre: [
+            "Drama", "Adventure", "Romance"
+        ],
+        readed: "13k",
+        description: "This sketchbook for kids is the perfect tool to improve your drawing skills! Designed to encourage kids around the world to express their uniqueness through drawing, sketching or doodling, this sketch book is filled with 110 high quality blank pages for creations. Add some fun markers, crayons, and art supplies and you have the perfect, easy gift for kids!",
+        backgroundColor: "rgba(119,77,143,0.9)",
+        navTintColor: "#FFF"
+    }
+    const bookTheTinyDragonaa = {
+        id: 5,
+        bookName: "The Tiny \nDragon",
+        bookCover: images.theTinyDragon,
+        rating: "3.5/5",
+        language: "Español",
+        episodeNo: 110,
         author: "Ana C Bouvier",
         genre: [
             "Drama", "Adventure", "Romance"
@@ -78,24 +110,31 @@ const Home = ({ navigation }) => {
     }
 
     const myBooksData = [
+        
         {
-            ...bookOtherWordsForHome,
-            completion: "75%",
-            lastRead: "3d 5h",
-
-        },
-        {
-            ...bookTheMetropolis,
+            ...bookTheMetropolis,           
             completion: "23%",
             lastRead: "10d 5h",
-
         },
         {
             ...bookTheTinyDragon,
-            completion: "10%",
-            lastRead: "1d 2h",
+
+        },
+        {
+            ...bookTheTinyDragona,
 
         }
+    ]
+
+    const myBooksData2 = [
+        {
+            ...bookOtherWordsForHome,
+          
+        },
+        {
+            ...bookTheMetropolis,
+        },
+        
     ]
 
     const categoriesData = [
@@ -120,10 +159,18 @@ const Home = ({ navigation }) => {
                 bookTheTinyDragon
             ]
         },
+         {
+            id: 4,
+            categoryName: "Coming Soon",
+            books: [
+                bookTheTinyDragon , bookTheTinyDragona
+            ]
+        },
     ]
 
     const [profile, setProfile] = React.useState(profileData);
     const [myBooks, setMyBooks] = React.useState(myBooksData);
+    const [myBooks2, setMyBooks2] = React.useState(myBooksData2);
     const [categories, setCategories] = React.useState(categoriesData);
     const [selectedCategory, setSelectedCategory] = React.useState(1);
 
@@ -264,29 +311,24 @@ const Home = ({ navigation }) => {
                         book: item
                     })}
                 >
-                    {/* Book Cover */}
+                 
+                    {/* Book Cover scroll */}
                     <Image
                         source={item.bookCover}
                         resizeMode="cover"
                         style={{
-                            width: 180,
-                            height: 250,
+                            width: 130,
+                            height: 190,
                             borderRadius: 20
                         }}
                     />
 
                     {/* Book Info */}
                     <View style={{ marginTop: SIZES.radius, flexDirection: 'row', alignItems: 'center' }}>
-                        <Image
-                            source={icons.clock_icon}
-                            style={{
-                                width: 20,
-                                height: 20,
-                                tintColor: COLORS.lightGray
-                            }}
-                        />
-                        <Text style={{ marginLeft: 5, ...FONTS.body3, color: COLORS.lightGray }}>{item.lastRead}</Text>
-
+                        
+                       <AntDesign name="star" size={20} color="darkgrey" />
+                        <Text style={{ marginLeft: 5, ...FONTS.body3, color: COLORS.lightGray }}>{item.bookName.slice(0, 20) + "..."}</Text>
+                    {/*
                         <Image
                             source={icons.page_icon}
                             style={{
@@ -297,6 +339,7 @@ const Home = ({ navigation }) => {
                             }}
                         />
                         <Text style={{ marginLeft: 5, ...FONTS.body3, color: COLORS.lightGray }}>{item.completion}</Text>
+                        */}
                     </View>
                 </TouchableOpacity>
             )
@@ -384,7 +427,7 @@ const Home = ({ navigation }) => {
                         <Image
                             source={item.bookCover}
                             resizeMode="cover"
-                            style={{ width: 100, height: 150, borderRadius: 10 }}
+                            style={{ width: 80, height: 120, borderRadius: 10 }}
                         />
 
                         <View style={{ flex: 1, marginLeft: SIZES.radius }}>
@@ -405,7 +448,7 @@ const Home = ({ navigation }) => {
                                         tintColor: COLORS.lightGray
                                     }}
                                 />
-                                <Text style={{ ...FONTS.body4, color: COLORS.lightGray, paddingHorizontal: SIZES.radius }}>{item.pageNo}</Text>
+                                
 
                                 <Image
                                     source={icons.read_icon}
@@ -487,6 +530,10 @@ const Home = ({ navigation }) => {
                 {/* Books Section */}
                 <View>
                     {renderMyBookSection(myBooks)}
+                </View>
+
+                <View>
+                    {renderMyBookSection(myBooks2)}
                 </View>
 
                 {/* Categories Section */}

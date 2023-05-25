@@ -7,6 +7,7 @@ import { Home } from "../screens/";
 import { icons, COLORS } from "../constants";
 import Pdfs from "../screens/Pdfs";
 import Buttons from "../screens/Buttons";
+import Search from "../screens/Search";
 
 const Tab = createBottomTabNavigator();
 
@@ -93,7 +94,7 @@ const Tabs = () => {
            
             <Tab.Screen
                 name="Setting"
-                component={Buttons}
+                component={Search}
             />
         </Tab.Navigator>
     )
