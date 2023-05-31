@@ -1,3 +1,4 @@
+  {/* Manga Nova */}
 import React from "react";
 import {
     SafeAreaView,
@@ -8,7 +9,7 @@ import {
     ScrollView,
     FlatList
 } from 'react-native';
-
+import { booksData } from './Data.js';
 import { COLORS, FONTS, SIZES, icons, images } from '../constants';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -22,148 +23,151 @@ const LineDivider = () => {
 
 const Home = ({ navigation }) => {
 
+    const { onepiece, demonslayer, komisan, dragonballmultiverse,
+         chainsawman,jibakushounen,bluelock,bananafish,
+         recordofragnarok,goodnightpunpun,talesofdemonsandgods,
+         jojosbizarreadventure, spyxfamily,Berserk, 
+         blackclover,
+         ijiranaidenagatorosan,
+         pumpkinnight,jujutsukaisen,
+         Mokushiroku,
+         ShingekinoKyojin,
+         sonobisque,
+         vagabond,
+         YofukashinoUta,
+         Kaiju} = booksData;
+
     const profileData = {
         name: 'Username',
         point: 200
     }
 
-    const bookOtherWordsForHome = {
-        id: 1,
-        bookName: "One \n Piece",
-        bookCover: images.onepiece,
-        rating: "4.5/5",
-        language: "Español",
-        episodeNo: 100,
-        author: "Jasmine Warga",
-        genre: [
-            "Romance", "Adventure", "Drama"
-        ],
-        readed: "12k",
-        description: "One Piece, conocido en español como  es un popular manga y anime creado por Eiichiro Oda. Narra las aventuras de Monkey D. Luffy, un joven pirata con un cuerpo elástico que se embarca en un viaje para encontrar el legendario tesoro conocido como One Piece y convertirse en el Rey de los Piratas.",
-        backgroundColor: "rgba(240,240,232,0.9)",
-        navTintColor: "#000"
-    }
+   
 
-    const bookTheMetropolis = {
-        id: 2,
-        bookName: "Demon \n Slayer",
-        bookCover: images.theMetropolist,
-        rating: "4.1/5",
-        language: "Español",
-        episodeNo: 272,
-        author: "Seith Fried",
-        genre: [
-            "Adventure", "Drama"
-        ],
-        readed: "13k",
-        description: "Demon Slayer: Kimetsu no Yaiba es una serie de manga japonesa escrita e ilustrada por Koyoharu Gotouge. Fue serializado en la revista de manga shōnen de Shueisha Weekly Shōnen Jump desde febrero de 2016 hasta mayo de 2020, con sus capítulos recopilados en 23 volúmenes de tankōbon.",
-        navTintColor: "#000"
-    }
-
-    const bookTheTinyDragon = {
-        id: 3,
-        bookName: "The Tiny \n Dragon",
-        bookCover: images.theTinyDragon,
-        rating: "3.5/5",
-        language: "Español",
-        episodeNo: 110,
-        author: "Ana C Bouvier",
-        genre: [
-            "Drama", "Adventure", "Romance"
-        ],
-        readed: "13k",
-        description: "This sketchbook for kids is the perfect tool to improve your drawing skills! Designed to encourage kids around the world to express their uniqueness through drawing, sketching or doodling, this sketch book is filled with 110 high quality blank pages for creations. Add some fun markers, crayons, and art supplies and you have the perfect, easy gift for kids!",
-        backgroundColor: "rgba(119,77,143,0.9)",
-        navTintColor: "#FFF"
-    }
-    const bookTheTinyDragona = {
-        id: 4,
-        bookName: "The Tiny \nDragon",
-        bookCover: images.theTinyDragon,
-        rating: "3.5/5",
-        language: "Español",
-        episodeNo: 110,
-        author: "Ana C Bouvier",
-        genre: [
-            "Drama", "Adventure", "Romance"
-        ],
-        readed: "13k",
-        description: "This sketchbook for kids is the perfect tool to improve your drawing skills! Designed to encourage kids around the world to express their uniqueness through drawing, sketching or doodling, this sketch book is filled with 110 high quality blank pages for creations. Add some fun markers, crayons, and art supplies and you have the perfect, easy gift for kids!",
-        backgroundColor: "rgba(119,77,143,0.9)",
-        navTintColor: "#FFF"
-    }
-    const bookTheTinyDragonaa = {
-        id: 5,
-        bookName: "The Tiny \nDragon",
-        bookCover: images.theTinyDragon,
-        rating: "3.5/5",
-        language: "Español",
-        episodeNo: 110,
-        author: "Ana C Bouvier",
-        genre: [
-            "Drama", "Adventure", "Romance"
-        ],
-        readed: "13k",
-        description: "This sketchbook for kids is the perfect tool to improve your drawing skills! Designed to encourage kids around the world to express their uniqueness through drawing, sketching or doodling, this sketch book is filled with 110 high quality blank pages for creations. Add some fun markers, crayons, and art supplies and you have the perfect, easy gift for kids!",
-        backgroundColor: "rgba(119,77,143,0.9)",
-        navTintColor: "#FFF"
-    }
+    
+   
 
     const myBooksData = [
+        {
+            ...onepiece,
+        },
         
         {
-            ...bookTheMetropolis,           
+            ...demonslayer,           
             completion: "23%",
             lastRead: "10d 5h",
         },
         {
-            ...bookTheTinyDragon,
+            ...komisan,
 
         },
         {
-            ...bookTheTinyDragona,
+            ...chainsawman,
 
+        },
+        {
+            ...dragonballmultiverse,
+        },
+        {   
+            ...jibakushounen,
         }
     ]
 
     const myBooksData2 = [
         {
-            ...bookOtherWordsForHome,
+            ...bluelock,
           
         },
         {
-            ...bookTheMetropolis,
+            ...bananafish,
         },
-        
+        {
+            ...recordofragnarok,
+        },
+        {
+            ...goodnightpunpun,
+        },
+        {
+            ...talesofdemonsandgods,
+        },
+        {
+            ...jojosbizarreadventure
+        }
     ]
+    const myBooksData3 = [
+        {
+            ...spyxfamily,
+          
+        },      
+        {
+            ...Berserk, 
+        },
+        {
+            ...blackclover,
+        },
+        {
+            ...ijiranaidenagatorosan,
+        },
+        {
+            ...pumpkinnight,
+        },
+        {
+            ...Kaiju
+        }
+    ]
+    
+
+         
+
+         const myBooksData4 = [
+            {
+                ...jujutsukaisen,
+              
+            },      
+            {
+                ...Mokushiroku,
+            },
+            {
+                ...ShingekinoKyojin,
+            },
+            {
+                ...sonobisque,
+            },
+            {
+                ...vagabond,
+            },
+            {
+                ...YofukashinoUta,
+            }
+        ]
 
     const categoriesData = [
         {
             id: 1,
             categoryName: "Best Seller",
             books: [
-                bookOtherWordsForHome, bookTheMetropolis, bookTheTinyDragon
+                onepiece, demonslayer, komisan
             ]
         },
         {
             id: 2,
             categoryName: "The Latest",
             books: [
-                bookTheMetropolis
+                demonslayer
             ]
         },
         {
             id: 3,
             categoryName: "Coming Soon",
             books: [
-                bookTheTinyDragon
+                komisan
             ]
         },
          {
             id: 4,
             categoryName: "Coming Soon",
             books: [
-                bookTheTinyDragon , bookTheTinyDragona
+                komisan , chainsawman
             ]
         },
     ]
@@ -171,6 +175,8 @@ const Home = ({ navigation }) => {
     const [profile, setProfile] = React.useState(profileData);
     const [myBooks, setMyBooks] = React.useState(myBooksData);
     const [myBooks2, setMyBooks2] = React.useState(myBooksData2);
+    const [myBooks3, setMyBooks3] = React.useState(myBooksData3);
+    const [myBooks4, setMyBooks4] = React.useState(myBooksData4);
     const [categories, setCategories] = React.useState(categoriesData);
     const [selectedCategory, setSelectedCategory] = React.useState(1);
 
@@ -354,7 +360,9 @@ const Home = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={() => console.log("See More")}
                     >
+                         {/* Header 
                         <Text style={{ ...FONTS.body3, color: COLORS.lightGray, alignSelf: 'flex-start', textDecorationLine: 'underline' }}>see more</Text>
+                    */}
                     </TouchableOpacity>
                 </View>
 
@@ -534,6 +542,12 @@ const Home = ({ navigation }) => {
 
                 <View>
                     {renderMyBookSection(myBooks2)}
+                </View>
+                <View>
+                    {renderMyBookSection(myBooks3)}
+                </View>
+                <View>
+                    {renderMyBookSection(myBooks4)}
                 </View>
 
                 {/* Categories Section */}

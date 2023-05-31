@@ -75,13 +75,13 @@ const BookDetail = ({ route, navigation }) => {
                             style={{
                                 width: 25,
                                 height: 25,
-                                tintColor: book.navTintColor
+                                tintColor: "#FFF"
                             }}
                         />
                     </TouchableOpacity>
 
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text style={{ ...FONTS.h2, color: book.navTintColor }}>{book.bookName}</Text>
+                    <Text style={{ ...FONTS.h2, color: "black" }}>{book.bookName}</Text>
                     </View>
 
                     <TouchableOpacity
@@ -94,7 +94,7 @@ const BookDetail = ({ route, navigation }) => {
                             style={{
                                 width: 30,
                                 height: 30,
-                                tintColor: book.navTintColor,
+                                tintColor: "#FFF",
                                 alignSelf: 'flex-end'
                             }}
                         />
@@ -121,7 +121,7 @@ const BookDetail = ({ route, navigation }) => {
                     <Text style={{ ...FONTS.body3, color: book.navTintColor }}>{book.author}</Text>
                 </View>
  */}
- 
+
                 {/* Book Info */}
                 <View
                     style={{
