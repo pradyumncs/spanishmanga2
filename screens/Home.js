@@ -1,5 +1,5 @@
   {/* Manga Nova */}
-import React from "react";
+  import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
     SafeAreaView,
     View,
@@ -23,6 +23,8 @@ const LineDivider = () => {
 
 const Home = ({ navigation }) => {
 
+    const [userstatepro, setUserstatepro] = useState(false);
+
     const { onepiece, demonslayer, komisan, dragonballmultiverse,
          chainsawman,jibakushounen,bluelock,bananafish,
          recordofragnarok,goodnightpunpun,talesofdemonsandgods,
@@ -35,7 +37,8 @@ const Home = ({ navigation }) => {
          sonobisque,
          vagabond,
          YofukashinoUta,
-         Kaiju} = booksData;
+         Kaiju,yamada,OnePunchMan,myheroacademia,MushokuTensei,Mairimashita,hunterxhunter,bleach,Dandadan,drstone,
+         kaguyasama,lavidadespues,Tsukigamichibiku,  } = booksData;
 
     const profileData = {
         name: 'Username',
@@ -140,7 +143,52 @@ const Home = ({ navigation }) => {
                 ...YofukashinoUta,
             }
         ]
+ 
 
+        const myBooksData5 = [
+            {
+                ...myheroacademia,
+              
+            },      
+            {
+                ...OnePunchMan,
+            },
+            {
+                ...hunterxhunter,
+            },
+            {
+                ...yamada,
+            },
+            {
+                ...Mairimashita,
+            },
+            {
+                ...MushokuTensei,
+            }
+        ]
+         
+        const myBooksData6 =  [
+            {
+                ...bleach,
+              
+            },      
+            {
+                ...Dandadan,
+            },
+            {
+                ...drstone,
+            },
+            {
+                ...kaguyasama,
+            },
+            {
+                ...lavidadespues,
+            },
+            {
+                ...Tsukigamichibiku,
+            }
+        ]
+       
     const categoriesData = [
         {
             id: 1,
@@ -177,6 +225,8 @@ const Home = ({ navigation }) => {
     const [myBooks2, setMyBooks2] = React.useState(myBooksData2);
     const [myBooks3, setMyBooks3] = React.useState(myBooksData3);
     const [myBooks4, setMyBooks4] = React.useState(myBooksData4);
+    const [myBooks5, setMyBooks5] = React.useState(myBooksData5);
+    const [myBooks6, setMyBooks6] = React.useState(myBooksData6);
     const [categories, setCategories] = React.useState(categoriesData);
     const [selectedCategory, setSelectedCategory] = React.useState(1);
 
@@ -355,8 +405,11 @@ const Home = ({ navigation }) => {
             <View style={{ flex: 1 }}>
                 {/* Header */}
                 <View style={{ paddingHorizontal: SIZES.padding, flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Text style={{ ...FONTS.h2, color: COLORS.white }}>My Book</Text>
-
+                {myBooksData2 ?
+                    <Text style={{ ...FONTS.h2, color: COLORS.white }}>My Bookss</Text>
+                    :
+                    <Text style={{ ...FONTS.h2, color: COLORS.white }}>My Books</Text>
+                }
                     <TouchableOpacity
                         onPress={() => console.log("See More")}
                     >
@@ -549,6 +602,14 @@ const Home = ({ navigation }) => {
                 <View>
                     {renderMyBookSection(myBooks4)}
                 </View>
+                <View>
+                    {renderMyBookSection(myBooks5)}
+                </View>
+                <View>
+                    {renderMyBookSection(myBooks6)}
+                </View>
+                
+                
 
                 {/* Categories Section */}
                 <View style={{ marginTop: SIZES.padding }}>

@@ -26,22 +26,28 @@ export const ShingekinoKyojin = require("../assets/images/Row4/ShingekinoKyojin.
 export const sonobisque = require("../assets/images/Row4/sonobisque.jpg");
 export const vagabond = require("../assets/images/Row4/vagabond.png");
 export const YofukashinoUta = require("../assets/images/Row4/YofukashinoUta.jpg");
+export const hunterxhunter = require("../assets/images/Row5/hunterxhunter.jpg");
+export const Mairimashita = require("../assets/images/Row5/Mairimashita.jpg");
+export const MushokuTensei = require("../assets/images/Row5/MushokuTensei.png");
+export const myheroacademia = require("../assets/images/Row5/myheroacademia.jpg");
+export const OnePunchMan = require("../assets/images/Row5/OnePunchMan.png");
+export const yamada = require("../assets/images/Row5/yamada.jpg");
+export const bleach = require("../assets/images/Row6/bleach.jpg");
+export const Dandadan = require("../assets/images/Row6/Dandadan.jpg");
+export const drstone = require("../assets/images/Row6/drstone.jpg");
+export const kaguyasama = require("../assets/images/Row6/kaguyasama.jpg");
+export const lavidadespues = require("../assets/images/Row6/LaVidaDespuésdelaMuerte.jpg");
+export const Tsukigamichibiku = require("../assets/images/Row6/Tsukigamichibiku.jpg");
+
+
+
 
 
 
 
 export default {
-    otherWordsForHome,
-    theMetropolist,
-    theTinyDragon,
-    underland,
-    onepiece,
-    demonslayer,
-    dragonballmultiverse,
-    komisan,
-    chainsawman,
-    jibakushounen,
-    bluelock,
+    bleach,Dandadan,drstone,kaguyasama,lavidadespues,Tsukigamichibiku,    
+    otherWordsForHome,theMetropolist,theTinyDragon,underland, onepiece,demonslayer,dragonballmultiverse,komisan,    chainsawman,    jibakushounen,    bluelock,
     bananafish,
     recordofragnarok,
     goodnightpunpun,
@@ -59,5 +65,5 @@ export default {
     sonobisque,
     vagabond,
     YofukashinoUta,
-
+    yamada,OnePunchMan,myheroacademia,MushokuTensei,Mairimashita,hunterxhunter
 }

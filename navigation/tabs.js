@@ -1,34 +1,26 @@
 import React from "react";
-import {
-    Image
-} from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home } from "../screens/";
 import { icons, COLORS } from "../constants";
 import Pdfs from "../screens/Pdfs";
-import Buttons from "../screens/Buttons";
 import Search from "../screens/Search";
+import Offer from "../screens/Offer";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Button, ImageBackground, ScrollView, BackHandler } from "react-native";
 
 const Tab = createBottomTabNavigator();
-
-const tabOptions = {
-    showLabel: false,
-    style: {
-        height: "10%",
-        backgroundColor: COLORS.black
-    }
-}
 
 const Tabs = () => {
     return (
         <Tab.Navigator
-            tabBarOptions={tabOptions}
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused }) => {
+            screenOptions={({ route, focused }) => ({
+                tabBarShowLabel: false,
+                headerShown: false,
+                tabBarStyle: [{display: 'flex'}, {backgroundColor: COLORS.white}],
+                tabBarIcon: () => {
                     const tintColor = focused ? COLORS.white : COLORS.gray;
 
                     switch (route.name) {
-                        case "Home":
+                        case "Hometab":
                             return (
                                 <Image
                                     source={icons.dashboard_icon}
@@ -45,19 +37,6 @@ const Tabs = () => {
                             return (
                                 <Image
                                     source={icons.search_icon}
-                                    resizeMode="contain"
-                                    style={{
-                                        tintColor: tintColor,
-                                        width: 25,
-                                        height: 25
-                                    }}
-                                />
-                            )
-
-                        case "Notification":
-                            return (
-                                <Image
-                                    source={icons.notification_icon}
                                     resizeMode="contain"
                                     style={{
                                         tintColor: tintColor,
@@ -84,14 +63,13 @@ const Tabs = () => {
             })}
         >
             <Tab.Screen
-                name="Home"
+                name="Hometab"
                 component={Home}
             />
             <Tab.Screen
                 name="Search"
-                component={Pdfs}
+                component={Offer}
             />
-           
             <Tab.Screen
                 name="Setting"
                 component={Search}

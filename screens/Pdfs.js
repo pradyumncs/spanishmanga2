@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { useRef, useState } from 'react';
+import React from 'react';
+import { useRef, useState,useEffect } from 'react';
 import { StyleSheet, SafeAreaView, Button,  View,
+  
   Text,
   ImageBackground,
   TouchableOpacity,
@@ -11,6 +13,8 @@ import { StyleSheet, SafeAreaView, Button,  View,
 import Pdf from 'react-native-pdf';
 import { printToFileAsync } from 'expo-print';
 import { FONTS, COLORS, SIZES, icons } from "../constants";
+
+
 
 // npx expo install react-native-pdf react-native-blob-util fbjs @config-plugins/react-native-pdf @config-plugins/react-native-blob-util
 
@@ -35,10 +39,33 @@ expo start --dev-client
 */
 
 export default function Pdfs({ route, navigation }) {
-  const onlineSource = { uri: "http://samples.leanpub.com/thereactnativebook-sample.pdf", cache: true };
-  const [pdfSource, setPdfSource] = useState(onlineSource);
+ 
+  const [bookweb, setBookweb] = React.useState("");
+  const [Chapterindexo, setChapterindexo] = React.useState("");
+  const [pdfSource, setPdfSource] = useState(null); // Initialize pdfSource with null
   const pdfRef = useRef();
 
+React.useEffect(() => {
+  let { book,chapterIndex } = route.params;
+
+  console.log(chapterIndex)
+  console.log(chapterIndex)
+  setChapterindexo(chapterIndex)
+  console.log(book.web)
+  setBookweb(book.web)
+  
+}, [])
+
+
+
+  console.log(bookweb)
+  useEffect(() => {
+    if(bookweb) {
+      const onlineSource = { uri: `https://mangaspanish.s3.ap-south-1.amazonaws.com/${bookweb}(${Chapterindexo}).pdf`, cache: true };
+      setPdfSource(onlineSource);
+     }
+  }, [bookweb]);
+  
   const generatePdf = async (generateBase64) => {
     const html = `
       <html>
@@ -54,8 +81,7 @@ export default function Pdfs({ route, navigation }) {
       base64: generateBase64
     });
 
-    console.log(fileGenerated.base64);
-    console.log(fileGenerated.uri);
+
 
     const newSource = {
       uri: generateBase64 ? `data:application/pdf;base64,${fileGenerated.base64}` : fileGenerated.uri,
@@ -72,7 +98,7 @@ export default function Pdfs({ route, navigation }) {
     <SafeAreaView style={styles.container}>
      
       <TouchableOpacity
-                        style={{ margin: 20 }}
+                        style={{ left:0 }}
                         onPress={() => navigation.goBack()}
                     >
                         <Image
@@ -85,11 +111,11 @@ export default function Pdfs({ route, navigation }) {
                             }}
                         />
                     </TouchableOpacity>
+    {pdfSource && (              
       <Pdf
         trustAllCerts={false}
         ref={pdfRef} 
         source={pdfSource}
-        horizontal
         showsHorizontalScrollIndicator={true}
         showsVerticalScrollIndicator={true}
         onLoadComplete={(numberOfPages, filePath) => {
@@ -106,6 +132,7 @@ export default function Pdfs({ route, navigation }) {
         }}
         style={styles.pdf}
       />
+      )}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -115,8 +142,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+   
     
   },
   pdf: {

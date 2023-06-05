@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView,Image,ImageBackground } from 'react-native';
 import { FONTS, COLORS, SIZES, icons } from "../constants";
 
@@ -15,14 +15,32 @@ export default function Buttons({ route, navigation }) {
   const [totalItems, settotalItems] = React.useState(150);
   //const totalItems = 100
   const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const [bookaa, setBook] = React.useState(null);
+  const [bookaa, setBooka] = React.useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [bookaimg, setBookimg] = React.useState();
+  const [web,setWeb] = React.useState();
+  const [book,setBook] = React.useState();
+  
+  React.useEffect(() => {
+    let { bookaa } = route.params;
+    setBooka(bookaa)
+    settotalItems(bookaa.episodeNo)
+    setBookimg(bookaa.bookCover)
+    setWeb(bookaa.web)
+    console.log(bookaa.web)
+}, [bookaa])
 
   const buttons = Array.from({ length: totalItems }, (_, index) => ({
+    
     title: `Capítulo ${index + 1}`,
+    
    // onPress: () => console.log(`Chapter ${index + 1} pressed`),
-   onPress: () => navigation.navigate("Pdfs"
+   onPress: () => navigation.navigate("Pdfs",{
+        book:bookaa,
+        chapterIndex: index + 1,
+       
+
+   }
    ),
    
   }));
@@ -39,13 +57,7 @@ export default function Buttons({ route, navigation }) {
   const endIndex = startIndex + itemsPerPage;
   const visibleButtons = buttons.slice(startIndex, endIndex);
 
-  React.useEffect(() => {
-    let { bookaa } = route.params;
-    setBook(bookaa)
-    console.log(bookaa.author)
-    settotalItems(bookaa.episodeNo)
-    setBookimg(bookaa.bookCover)
-}, [bookaa])
+  
 
  
   
