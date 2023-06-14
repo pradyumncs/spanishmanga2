@@ -8,9 +8,8 @@ export const booksData = {
         rating: "4.5/5",
         language: "Español",
         episodeNo: 1155,
-        author: "Jasmine Warga",
         genre: ["Romance", "Adventure", "Drama"],
-        readed: "12k",
+        readed: "120,785",
         description: "One Piece es una serie de manga japonesa escrita e ilustrada por Eiichiro Oda. Ha sido serializado en la revista de manga shōnen Weekly Shōnen Jump de Shueisha desde julio de 1997, con sus capítulos individuales compilados en 105 volúmenes de tankōbon a partir de marzo de 2023.",
         backgroundColor: "rgba(240,240,232,0.9)",
         navTintColor: "#000",
@@ -25,7 +24,7 @@ export const booksData = {
         genre: [
             "Adventure", "Drama"
         ],
-        readed: "43k",
+        readed: "43,000",
         description: "Demon Slayer: Kimetsu no Yaiba es una serie de manga japonesa escrita e ilustrada por Koyoharu Gotouge. Fue serializado en la revista de manga shōnen de Shueisha Weekly Shōnen Jump desde febrero de 2016 hasta mayo de 2020, con sus capítulos recopilados en 23 volúmenes de tankōbon.",  
         web:"DemonsLayer+"
     },
@@ -38,7 +37,7 @@ export const booksData = {
         genre: [
             "Drama", "Adventure", "Romance"
         ],
-        readed: "83k",
+        readed: "83,876",
         description: "Komi Can't Communicate es una serie de manga japonesa escrita e ilustrada por Tomohito Oda. Ha sido serializado en la revista de manga shōnen Weekly Shōnen Sunday de Shogakukan desde mayo de 2016, con sus capítulos recopilados en 29 volúmenes de tankōbon a partir de abril de 2023. La serie tiene licencia en Norteamérica por Viz Media",
         backgroundColor: "rgba(119,77,143,0.9)",
         web:"Komisan+"

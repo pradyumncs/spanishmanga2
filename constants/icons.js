@@ -14,6 +14,10 @@ export const read_icon = require("../assets/icons/read_icon.png");
 export const back_arrow_icon = require("../assets/icons/back_arrow_icon.png");
 export const back_arrow_icon2 = require("../assets/icons/back_arrow_icon2.png");
 export const more_icon = require("../assets/icons/more_icon.png");
+export const homeoffer = require("../assets/homeoffer.png");
+export const star = require("../assets/icons/star.png");
+
+
 
 
 export default {
@@ -32,5 +36,6 @@ export default {
     read_icon,
     back_arrow_icon,
     back_arrow_icon2,
-    more_icon
+    more_icon,
+    homeoffer,star
 }

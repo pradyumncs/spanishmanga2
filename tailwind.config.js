@@ -1,6 +1,10 @@
 module.exports = {
   content: ['App.js',
-  './screens//*.{html,js}'],
+  './screens//*.{html,js}',
+  './Premium//*.{html,js}',
+  'Onboardingitem.js',
+],
+  
   theme: {
     extend: {},
   },

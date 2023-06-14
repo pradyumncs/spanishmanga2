@@ -14,6 +14,7 @@ import { useFonts } from 'expo-font';
 import Rectangle from '../assets/Rectangle.png'
 import like from '../assets/like.png';
 import Purchases from 'react-native-purchases';
+import Premiumoffer from "../Premium/Premiumoffer";
 
 
 
@@ -155,11 +156,11 @@ const Offer = () => {
                                 <TouchableOpacity
                                     style={[tw("rounded-2xl w-36 h-14  bg-white"),
                                     styles.shadow]}
-                                    onPress={() => navigation.navigate("Premiumoffer")}
+                                    onPress={() => navigation.navigate("Premiums")}
 
                                 >
                                     <Text style={tw("text-center text-black text-lg")}>
-                                        Actualizar {"\n"} ahora 
+                                        Obtener {"\n"} ahora 
                                     </Text>
                                 </TouchableOpacity>
                                

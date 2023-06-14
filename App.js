@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import 'expo-dev-client';
 import 'react-native-gesture-handler';
-import React from 'react';
+import React , {useEffect,useState}from 'react';
 import utilities from './tailwind.json';
 //import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
@@ -14,6 +14,15 @@ import { useFonts } from 'expo-font';
 import Buttons from './screens/Buttons';
 import Pdfs from './screens/Pdfs';
 import Offer from './screens/Offer';
+import Purchases, { PurchasesOffering } from 'react-native-purchases';
+import Premiumoffer from './Premium/Premiumoffer';
+import PremiumCongrats from './Premium/PremiumCongrats';
+import Premium from './screens/Premium';
+const APIKeys = {
+  google: "goog_PGMXACamSrFCNRWXgtLKlUQTiqL",
+};
+const entitlement_id = 'pro';
+
 
 const theme = {
   ...DefaultTheme,
@@ -26,6 +35,12 @@ const theme = {
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+
+    useEffect(() => {
+        Purchases.setDebugLogsEnabled(true);
+        Purchases.configure({ apiKey: APIKeys.google });
+      }, [])
+    
     const tailwind = useTailwind();
   const [loaded] = useFonts({
           "Roboto-Black" : require('./assets/fonts/Roboto-Black.ttf'),
@@ -53,6 +68,10 @@ const App = () => {
               <Stack.Screen name="Buttons" component={Buttons} />
               <Stack.Screen name="offer" component={Offer} />
               <Stack.Screen name="Pdfs" component={Pdfs} />
+              <Stack.Screen name="Premiumoffer" component={Premiumoffer} />
+              <Stack.Screen name="Premium" component={Premium} />
+              <Stack.Screen name="PremiumCongrats" component={PremiumCongrats} />
+
           </Stack.Navigator>
       </NavigationContainer>
       </TailwindProvider>

@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "spanishmanga2",
-    "slug": "spanishmanga2",
+    "name": "Hola Manga",
+    "slug": "holamanga",
     "version": "1.0.0",
+    "owner": "xyzstudio",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logoo.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,17 +20,17 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logoo.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.pradyumnbs.spanishmanga2"
+      "package": "com.xyzstudio.holamanga"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logoo.png"
     },
     "extra": {
       "eas": {
-        "projectId": "28ce4fc4-2b4e-4c42-a590-81144ff478b6"
+        "projectId": "d2619360-cce2-4870-beef-42e0189128b4"
       }
     }
   }

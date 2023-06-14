@@ -9,6 +9,7 @@ import {
     ScrollView,
     FlatList
 } from 'react-native';
+import { useTailwind } from 'tailwind-rn/dist';
 import { booksData } from './Data.js';
 import { COLORS, FONTS, SIZES, icons, images } from '../constants';
 import { AntDesign } from '@expo/vector-icons';
@@ -24,6 +25,7 @@ const LineDivider = () => {
 const Home = ({ navigation }) => {
 
     const [userstatepro, setUserstatepro] = useState(false);
+    const tw = useTailwind();
 
     const { onepiece, demonslayer, komisan, dragonballmultiverse,
          chainsawman,jibakushounen,bluelock,bananafish,
@@ -93,9 +95,7 @@ const Home = ({ navigation }) => {
         {
             ...talesofdemonsandgods,
         },
-        {
-            ...jojosbizarreadventure
-        }
+        
     ]
     const myBooksData3 = [
         {
@@ -114,9 +114,9 @@ const Home = ({ navigation }) => {
         {
             ...pumpkinnight,
         },
-        {
-            ...Kaiju
-        }
+        
+       
+       
     ]
     
 
@@ -139,9 +139,7 @@ const Home = ({ navigation }) => {
             {
                 ...vagabond,
             },
-            {
-                ...YofukashinoUta,
-            }
+            
         ]
  
 
@@ -162,9 +160,7 @@ const Home = ({ navigation }) => {
             {
                 ...Mairimashita,
             },
-            {
-                ...MushokuTensei,
-            }
+            
         ]
          
         const myBooksData6 =  [
@@ -188,6 +184,28 @@ const Home = ({ navigation }) => {
                 ...Tsukigamichibiku,
             }
         ]
+
+        const myBooksData7 =  [
+            {
+                ...jojosbizarreadventure
+            },
+           
+
+            {
+                ...Kaiju
+            },
+            {
+                ...YofukashinoUta,
+            },
+            {
+                ...MushokuTensei,
+            },
+            {
+                ...Tsukigamichibiku,
+            }
+        ]
+
+
        
     const categoriesData = [
         {
@@ -197,27 +215,7 @@ const Home = ({ navigation }) => {
                 onepiece, demonslayer, komisan
             ]
         },
-        {
-            id: 2,
-            categoryName: "The Latest",
-            books: [
-                demonslayer
-            ]
-        },
-        {
-            id: 3,
-            categoryName: "Coming Soon",
-            books: [
-                komisan
-            ]
-        },
-         {
-            id: 4,
-            categoryName: "Coming Soon",
-            books: [
-                komisan , chainsawman
-            ]
-        },
+       
     ]
 
     const [profile, setProfile] = React.useState(profileData);
@@ -227,136 +225,47 @@ const Home = ({ navigation }) => {
     const [myBooks4, setMyBooks4] = React.useState(myBooksData4);
     const [myBooks5, setMyBooks5] = React.useState(myBooksData5);
     const [myBooks6, setMyBooks6] = React.useState(myBooksData6);
+    const [myBooks7, setMyBooks7] = React.useState(myBooksData7);
     const [categories, setCategories] = React.useState(categoriesData);
     const [selectedCategory, setSelectedCategory] = React.useState(1);
 
     function renderHeader(profile) {
         return (
-            <View style={{ flex: 1, flexDirection: 'row', paddingHorizontal: SIZES.padding, alignItems: 'center' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 {/* Greetings */}
+                
                 <View style={{ flex: 1 }}>
-                    <View style={{ marginRight: SIZES.padding }}>
-                        <Text style={{ ...FONTS.h3, color: COLORS.white }}>Good Morning</Text>
-                        <Text style={{ ...FONTS.h2, color: COLORS.white }}>{profile.name}</Text>
-                    </View>
-                </View>
-
-                {/* Points */}
                 <TouchableOpacity
-                    style={{
-                        backgroundColor: COLORS.primary,
-                        height: 40,
-                        paddingLeft: 3,
-                        paddingRight: SIZES.radius,
-                        borderRadius: 20
-                    }}
-                    onPress={() => { console.log("Point") }}
-                >
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={{ width: 30, height: 30, alignItems: 'center', justifyContent: 'center', borderRadius: 25, backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                            <Image
-                                source={icons.plus_icon}
-                                resizeMode="contain"
-                                style={{
-                                    width: 20,
-                                    height: 20
-                                }}
-                            />
-                        </View>
+                                    onPress={() => navigation.navigate("Premiums")}
 
-                        <Text style={{ marginLeft: SIZES.base, color: COLORS.white, ...FONTS.body3 }}>{profile.point} point</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-        )
-    }
+                                > 
 
-    function renderButtonSection() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', padding: SIZES.padding }}>
-                <View style={{ flexDirection: 'row', height: 70, backgroundColor: COLORS.secondary, borderRadius: SIZES.radius }}>
-                    {/* Claim */}
-                    <TouchableOpacity
-                        style={{ flex: 1 }}
-                        onPress={() => console.log("Claim")}
-                    >
-                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                            <Image
-                                source={icons.claim_icon}
-                                resizeMode="contain"
-                                style={{
-                                    width: 30,
-                                    height: 30
-                                }}
-                            />
-                            <Text style={{ marginLeft: SIZES.base, ...FONTS.body3, color: COLORS.white }}>Claim</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    {/* Divider */}
-                    <LineDivider />
-
-                    {/* Get Point */}
-                    <TouchableOpacity
-                        style={{ flex: 1 }}
-                        onPress={() => console.log("Get Point")}
-                    >
-                        <View
+                <Image
+                            source={icons.homeoffer}                            
                             style={{
-                                flex: 1,
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'center'
+                                
+                                
                             }}
-                        >
-                            <Image
-                                source={icons.point_icon}
-                                resizeMode="contain"
-                                style={{
-                                    width: 30,
-                                    height: 30
-                                }}
-                            />
-                            <Text style={{ marginLeft: SIZES.base, ...FONTS.body3, color: COLORS.white }}>Get Point</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    {/* Divider */}
-                    <LineDivider />
-
-                    {/* My Card */}
-                    <TouchableOpacity
-                        style={{ flex: 1 }}
-                        onPress={() => console.log("My Card")}
-                    >
-                        <View
-                            style={{
-                                flex: 1,
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
-                        >
-                            <Image
-                                source={icons.card_icon}
-                                resizeMode="contain"
-                                style={{
-                                    width: 30,
-                                    height: 30
-                                }}
-                            />
-                            <Text style={{ marginLeft: SIZES.base, ...FONTS.body3, color: COLORS.white }}>My Card</Text>
-                        </View>
-                    </TouchableOpacity>
+                        />
+                  </TouchableOpacity>
                 </View>
+
+                
             </View>
         )
     }
 
-    function renderMyBookSection(myBooks) {
+    
+
+    function renderMyBookSection(myBooks, sectionTitle) {
 
         const renderItem = ({ item, index }) => {
             return (
+
+               
+            
+               
+               
                 <TouchableOpacity
                     style={{
                         flex: 1,
@@ -367,7 +276,8 @@ const Home = ({ navigation }) => {
                         book: item
                     })}
                 >
-                 
+                
+
                     {/* Book Cover scroll */}
                     <Image
                         source={item.bookCover}
@@ -404,12 +314,11 @@ const Home = ({ navigation }) => {
         return (
             <View style={{ flex: 1 }}>
                 {/* Header */}
-                <View style={{ paddingHorizontal: SIZES.padding, flexDirection: 'row', justifyContent: 'space-between' }}>
-                {myBooksData2 ?
-                    <Text style={{ ...FONTS.h2, color: COLORS.white }}>My Bookss</Text>
-                    :
-                    <Text style={{ ...FONTS.h2, color: COLORS.white }}>My Books</Text>
-                }
+                <View style={{ paddingHorizontal: SIZES.padding,paddingVertical: 2, flexDirection: 'row', justifyContent: 'space-between' }}>
+                
+                <Text style={{ ...FONTS.h2, color: COLORS.black }}>{sectionTitle}</Text>
+                
+              
                     <TouchableOpacity
                         onPress={() => console.log("See More")}
                     >
@@ -443,7 +352,7 @@ const Home = ({ navigation }) => {
                 >
                     {
                         selectedCategory == item.id &&
-                        <Text style={{ ...FONTS.h2, color: COLORS.white }}>{item.categoryName}</Text>
+                        <Text style={{ ...FONTS.h2, color: COLORS.black }}>{item.categoryName}</Text>
                     }
                     {
                         selectedCategory != item.id &&
@@ -494,7 +403,7 @@ const Home = ({ navigation }) => {
                         <View style={{ flex: 1, marginLeft: SIZES.radius }}>
                             {/* Book name and author */}
                             <View>
-                                <Text style={{ paddingRight: SIZES.padding, ...FONTS.h2, color: COLORS.white }}>{item.bookName}</Text>
+                                <Text style={{ paddingRight: SIZES.padding, ...FONTS.h2, color: COLORS.black }}>{item.bookName}</Text>
                                 <Text style={{ ...FONTS.h3, color: COLORS.lightGray }}>{item.author}</Text>
                             </View>
 
@@ -528,7 +437,7 @@ const Home = ({ navigation }) => {
                                 {
                                     item.genre.includes("Adventure") &&
                                     <View style={{ justifyContent: 'center', alignItems: 'center', padding: SIZES.base, marginRight: SIZES.base, backgroundColor: COLORS.darkGreen, height: 40, borderRadius: SIZES.radius }}>
-                                        <Text style={{ ...FONTS.body3, color: COLORS.lightGreen }}>Adventure</Text>
+                                        <Text style={{ ...FONTS.body3, color: COLORS.lightGreen }}>Aventura</Text>
                                     </View>
                                 }
                                 {
@@ -579,34 +488,37 @@ const Home = ({ navigation }) => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.black }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white}}>
             {/* Header Section */}
-            <View style={{ height: 200 }}>
+            <View style={{ height: 350 }}>
                 {renderHeader(profile)}
-                {renderButtonSection()}
+             
             </View>
 
             {/* Body Section */}
             <ScrollView style={{ marginTop: SIZES.radius }}>
                 {/* Books Section */}
                 <View>
-                    {renderMyBookSection(myBooks)}
+                    {renderMyBookSection(myBooks, "Lo último gratis")}
                 </View>
 
                 <View>
-                    {renderMyBookSection(myBooks2)}
+                    {renderMyBookSection(myBooks2,"Premium - Aventura")}
                 </View>
                 <View>
-                    {renderMyBookSection(myBooks3)}
+                    {renderMyBookSection(myBooks3,"Premium - Crimen")}
                 </View>
                 <View>
-                    {renderMyBookSection(myBooks4)}
+                    {renderMyBookSection(myBooks4,"Premium - Fantasía")}
                 </View>
                 <View>
-                    {renderMyBookSection(myBooks5)}
+                    {renderMyBookSection(myBooks5,"Premium - Divertido")}
                 </View>
                 <View>
-                    {renderMyBookSection(myBooks6)}
+                    {renderMyBookSection(myBooks6,"Premium - magia")}
+                </View>
+                <View>
+                    {renderMyBookSection(myBooks7,"Premium - Love")}
                 </View>
                 
                 
